@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 
 import { Usuario } from '../../models/usuario.model';
 import { URL_SERVICIOS } from '../../config/config';
+import { SubirArchvivoService } from 'src/app/services/subir-archivo/subir-archvivo.service';
 
 
 @Injectable()
@@ -12,7 +13,7 @@ export class UsuarioService {
   usuario: Usuario;
   token: string;
 
-  constructor(public _http: HttpClient, public _router: Router) {
+  constructor(public _http: HttpClient, public _router: Router, public _subirArchivoService: SubirArchvivoService) {
     this.cargarStorage();
   }
 
@@ -88,5 +89,31 @@ export class UsuarioService {
        return res.usuario;
      }));
 
+  }
+
+  actualizarUsuario(usuario: Usuario){
+    let url = URL_SERVICIOS + '/usuario/' + usuario._id;
+    url += '?token=' + this.token;
+
+    return this._http.put(url, usuario)
+      .pipe(map((res: any) => {
+        let usuarioDB: Usuario = res.usuario;
+        this.guardarStorage(usuarioDB._id, this.token, usuarioDB);
+
+       swal('Usuario actualizado', usuario.nombre, 'success');
+       return true;
+     }));
+  }
+
+  cambiarImagen(archivo: File, id:string){
+    this._subirArchivoService.subirArchivo(archivo, 'usuarios', id)
+      .then((resp: any) => {
+        this.usuario.img = resp.usuario.img;
+        swal('Imagen actualizada', this.usuario.nombre, 'success');
+        this.guardarStorage(id, this.token, this.usuario);
+      })
+      .catch(resp => {
+        console.log(resp);
+      });
   }
 }

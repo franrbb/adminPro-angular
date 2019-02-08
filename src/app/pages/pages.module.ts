@@ -19,6 +19,8 @@ import { IncrementadorComponent } from '../components/incrementador/incrementado
 //PIPES
 import { PipesModule } from '../pipes/pipes.module';
 import { ProfileComponent } from './profile/profile.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { ModalUpdateComponent } from '../components/modal-update/modal-update.component';
 
 @NgModule({
   imports: [
@@ -35,7 +37,9 @@ import { ProfileComponent } from './profile/profile.component';
     ProgressComponent,
     Graficas1Component,
     IncrementadorComponent,
-    ProfileComponent
+    ProfileComponent,
+    UsuariosComponent,
+    ModalUpdateComponent
   ],
   exports:[
     DashboardComponent,

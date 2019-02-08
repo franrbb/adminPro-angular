@@ -4,6 +4,7 @@ import { SharedService, SidebarService } from './service.index';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SubirArchvivoService } from 'src/app/services/subir-archivo/subir-archvivo.service';
+import { ModalUploadService } from '../components/modal-update/modal-upload.service';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { SubirArchvivoService } from 'src/app/services/subir-archivo/subir-archv
     SharedService,
     SidebarService,
     UsuarioService,
-    SubirArchvivoService
+    SubirArchvivoService,
+    ModalUploadService
   ]
 })
 export class ServiceModule { }

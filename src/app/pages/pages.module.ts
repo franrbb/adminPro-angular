@@ -15,12 +15,17 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
 import { Graficas1Component } from './graficas1/graficas1.component';
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
-
-//PIPES
-import { PipesModule } from '../pipes/pipes.module';
 import { ProfileComponent } from './profile/profile.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ModalUpdateComponent } from '../components/modal-update/modal-update.component';
+import { HospitalesComponent } from './hospitales/hospitales.component';
+import { MedicosComponent } from './medicos/medicos.component';
+
+
+//PIPES
+import { PipesModule } from '../pipes/pipes.module';
+import { MedicoComponent } from './medicos/medico.component';
+
 
 @NgModule({
   imports: [
@@ -39,7 +44,10 @@ import { ModalUpdateComponent } from '../components/modal-update/modal-update.co
     IncrementadorComponent,
     ProfileComponent,
     UsuariosComponent,
-    ModalUpdateComponent
+    ModalUpdateComponent,
+    HospitalesComponent,
+    MedicosComponent,
+    MedicoComponent
   ],
   exports:[
     DashboardComponent,

@@ -7,6 +7,7 @@ import { SubirArchvivoService } from 'src/app/services/subir-archivo/subir-archv
 import { ModalUploadService } from '../components/modal-update/modal-upload.service';
 import { HospitalService } from './hospital/hospital.service';
 import { MedicoService } from './medico/medico.service';
+import { AdminGuard } from 'src/app/services/guards/admin.guard';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { MedicoService } from './medico/medico.service';
     SubirArchvivoService,
     ModalUploadService,
     HospitalService,
-    MedicoService
+    MedicoService,
+    AdminGuard
   ]
 })
 export class ServiceModule { }

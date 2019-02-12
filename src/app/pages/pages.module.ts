@@ -25,6 +25,7 @@ import { MedicosComponent } from './medicos/medicos.component';
 //PIPES
 import { PipesModule } from '../pipes/pipes.module';
 import { MedicoComponent } from './medicos/medico.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { MedicoComponent } from './medicos/medico.component';
     ModalUpdateComponent,
     HospitalesComponent,
     MedicosComponent,
-    MedicoComponent
+    MedicoComponent,
+    BusquedaComponent
   ],
   exports:[
     DashboardComponent,
